@@ -7,7 +7,7 @@
 - [存储](#存储)
 - [事务](#事务)
 - 共享组件
-- 关系模型
+- [关系模型](#关系模型)
 - [NewSQL](#NewSQL)
 - [学者](#学者)
 - [其他](#其他)
@@ -61,6 +61,11 @@
 
 介绍：分析型数据库和OLTP数据库需要不同的利弊权衡方式。这反映在索引数据结构的选择上。此文讨论了许多更适合分析型数据库的索引数据结构。
 
+- [《The Case for Learned Index Structures》](https://arxiv.org/abs/1712.01208)
+
+介绍：Google利用深度学习改善索引创建，提交查询效率
+
+
 #### 事务
 
 - [《Transaction Systems》](https://db.in.tum.de/teaching/ss19/transactions/?lang=en)
@@ -78,6 +83,32 @@
 - [《Improving Optimistic Concurrency Control Through Transaction Batching and Operation Reordering》](http://www.vldb.org/pvldb/vol12/p169-ding.pdf)
 
 介绍：通过事务批量和操作的重排序来提高乐观并发控制性能
+
+- [《Omid: Lock-free transactional support for distributed data stores》]
+
+介绍：Omid一种无锁分布式事务，它是Yahoo公司研发的在大规模分布式存储之上提供事务功能的组件，每隔一段时间都会发布一篇论文。分别是[《Taking Omid to the Clouds》](https://webee.technion.ac.il/~idish/ftp/p842-shacham.pdf)，[《Omid, Reloaded: Scalable and Highly-Available Transaction Processing》](https://www.usenix.org/system/files/conference/fast17/fast17-shacham.pdf)。阅读时推荐和Google发表的Percolator论文一起阅读
+
+- [《Concurrency Control and Recovery in Database Systems》](https://www.microsoft.com/en-us/research/people/philbe/book/)
+
+介绍：经典书籍，讨论数据库的并发控制和恢复。序列化、两阶段锁、MVCC、分布式数据恢复、数据复制
+
+- [《A Critique of ANSI SQL Isolation Levels》](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-95-51.pdf)
+
+介绍：对ANSI SQL 隔离级别的批评。ANSI SQL-92 提出了最经典的隔离级别定义，包括读未提交（Read Uncommitted）、读提交（Read Committed）、可重复读（Repeatable Read）和可序列化（Serializable）。本文显示，这些phenomena和ANSI SQL定义无法正确表征几个流行的隔离级别，包括对于不同隔离级别标准的锁实现。本文调查了phenomena说明中的歧义，并提出了更正式的说明;此外，介绍了更好地表征隔离类型的新phenomena。最后，定义了一个称为快照隔离的重要的多版本隔离类型。
+
+- [《Generalized Isolation Level Definitions》](http://pmg.csail.mit.edu/papers/icde00.pdf)
+
+介绍：这篇文章，指出了此前对隔离级别定义重度依赖数据库的实现，并且提出了与实现无关的隔离级别定义。
+
+- [《Serializable Snapshot Isolation in PostgreSQL》](https://drkp.net/papers/ssi-vldb12.pdf)
+
+介绍：快照隔离首先是在《A Critique of ANSI SQL Isolation Levels 》中被提出。本文主要讲述PostgreSQL中基于 Snapshot Isolation 的可串行化实现。
+
+#### 关系模型
+
+- [《Course Introduction and the Relational Model》](https://15445.courses.cs.cmu.edu/fall2019/schedule.html#aug-26-2019)    
+
+介绍：CMU 数据课程，讲述数据库关系模型
 
 #### NewSQL
 
@@ -129,3 +160,11 @@
 - [《Readings in Databases》](https://github.com/rxin/db-readings)
 
 介绍：Apache Spark作者[Reynold Xin](http://twitter.com/rxin)推荐的数据库阅读清单
+
+- [《Awesome Database Learning》](https://github.com/pingcap/awesome-database-learning)
+
+介绍：PingCAP下面的数据库学习资料repository. 
+
+- [《VLDB Proceedings of the VLDB Endowment,2019-2020 》](http://www.vldb.org/pvldb/vol13.html)
+
+介绍：2019-2020年著名数据库顶级会议之一的VLDB投稿论文列表，论文涵盖：测试、机器学习、数据存储、查询、图、索引、大数据领域等。
